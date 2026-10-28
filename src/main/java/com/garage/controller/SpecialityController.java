@@ -5,10 +5,10 @@ import com.garage.service.SpecialityService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController 
 @RequestMapping("/api/specialities")
@@ -64,6 +64,11 @@ public class SpecialityController {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
             }
             return ResponseEntity.ok(result);
+        }
+
+        @GetMapping("/unused")
+        public ResponseEntity<List<Speciality>> getUnusedSpecialities() {
+            return ResponseEntity.ok(service.getUnusedSpecialities());
         }
     
         

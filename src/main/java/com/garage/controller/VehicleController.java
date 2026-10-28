@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
- 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController 
 @RequestMapping("/api/vehicles")
@@ -71,4 +69,23 @@ public class VehicleController {
 
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("/by-vehicle-type")
+    public ResponseEntity<List<Vehicle>> getVehiclesByType(@RequestParam String vehicleType) {
+        return ResponseEntity.ok(service.getVehiclesByType(vehicleType));
+
+    }
+
+    
+@GetMapping("/of-mechanic/{mechanicId}")
+public ResponseEntity<?> getVehiclesOfMechanic(
+        @PathVariable UUID mechanicId) {
+
+    return service.getVehiclesOfMechanic(mechanicId)
+            .<ResponseEntity<?>>map(ResponseEntity::ok)
+            .orElseGet(() -> ResponseEntity
+                    .status(404)
+                    .body("The mechanic with that id does not exist"));
+}
+
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/api/mechanics")
@@ -66,6 +68,12 @@ public class MechanicController {
              return ResponseEntity.ok(result);
 
                             
-      }    
+      } 
+      @GetMapping("/by-speciality")
+      public ResponseEntity<List<Mechanic>> getMechanicsBySpeciality(@RequestParam String name) {
+        return ResponseEntity.ok(service.getMechanicsBySpeciality(name));
+      }
+
     
+
 }

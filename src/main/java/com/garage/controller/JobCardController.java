@@ -5,10 +5,12 @@ import com.garage.service.JobCardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.garage.entity.JobCardStatus;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.time.LocalDate;
 
 @RestController 
 @RequestMapping("/api/job-cards")
@@ -68,4 +70,20 @@ public class JobCardController {
 
         return ResponseEntity.ok(result);
     }
+
+    //B2 getting job status
+    @GetMapping("/by-status")
+    public ResponseEntity<List<JobCard>> getJobCardByStatus(@RequestParam JobCardStatus status) {
+        return ResponseEntity.ok(service.getJobCardByStatus(status));
+    } 
+
+    @GetMapping("/between")
+    public ResponseEntity<List<JobCard>> getJobCardsBetweenDates(@RequestParam String start, @RequestParam String end) {
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+
+        return ResponseEntity.ok(service.getJobCardsBetweenDates(startDate, endDate));
+    }
+
+    
 }

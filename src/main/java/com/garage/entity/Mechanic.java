@@ -33,13 +33,13 @@ public class Mechanic {
     @JoinColumn (name = "bay_id")
     private Bay bay;
 
-    @JsonIgnore
     @ManyToMany 
     @JoinTable(name = "mechanic_speciality",
         joinColumns = @JoinColumn(name = "mechanic_id"),
         inverseJoinColumns = @JoinColumn(name = "speciality_id")     
     )
 
+    @JsonIgnore
     private List<Speciality> specialities;
 
     public Mechanic(){

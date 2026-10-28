@@ -53,4 +53,9 @@ public class BayService {
         repository.deleteById(id);
         return "Bay deleted successfully";
     }
+
+    //C2 free bays with n mechanic
+    public List<Bay> getFreeBays() {
+        return repository.findFreeBays();
+    }
 }

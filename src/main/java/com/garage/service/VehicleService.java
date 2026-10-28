@@ -1,12 +1,13 @@
 package com.garage.service;
 
 import com.garage.entity.Vehicle;
+import com.garage.repository.MechanicRepository;
 import com.garage.repository.VehicleRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Service
@@ -59,5 +60,22 @@ public class VehicleService {
         repository.deleteById(id);
         return "Vehicle deleted successfuly";
     }
+
+    public List<Vehicle> getVehiclesByType(String vehicleType) {
+        return repository.findByVehicleTypeIgnoreCaseOrderByPlateNumberAsc(vehicleType);
+    }
+
+    
+@Autowired
+private MechanicRepository mechanicRepository;
+
+public Optional<List<Vehicle>> getVehiclesOfMechanic(UUID mechanicId) {
+    if (!mechanicRepository.existsById(mechanicId)) {
+        return Optional.empty();
+    }
+
+    return Optional.of(repository.findVehiclesOfMechanic(mechanicId));
+}
+
 
 }

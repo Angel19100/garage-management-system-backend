@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController 
 @RequestMapping("/api/bays")
@@ -63,5 +64,10 @@ public class BayController {
         }
 
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/free")
+    public ResponseEntity<List<Bay>> getFreeBays(){
+        return ResponseEntity.ok(service.getFreeBays());
     }
 }

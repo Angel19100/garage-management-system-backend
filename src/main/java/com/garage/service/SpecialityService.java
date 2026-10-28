@@ -3,7 +3,6 @@ package com.garage.service;
 import com.garage.entity.Speciality;
 import com.garage.repository.SpecialityRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -49,5 +48,11 @@ public class SpecialityService {
         }
         repository.deleteById(id);
         return "Speciality deleted successfully";
+    }
+
+    //C3 specialty nobody holds
+    public List<Speciality> getUnusedSpecialities() {
+        return repository.findUnsedSpecialities();
+
     }
 }

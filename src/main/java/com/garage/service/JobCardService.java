@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.time.LocalDate;
 
 @Service
 public class JobCardService {
@@ -56,5 +57,16 @@ public class JobCardService {
 
         repository.deleteById(id);
         return "Job card deleted succesfully";
+    }
+
+    //B2 Finding job card status
+    public List<JobCard> getJobCardByStatus(JobCardStatus status) {
+        return repository.findByStatusOrderByEntryDateAsc(status);
+
+    }
+
+    //B3 Job cards date range
+    public List<JobCard> getJobCardsBetweenDates(LocalDate start, LocalDate end) {
+        return repository.findByEntryDateBetweenOrderByEntryDateAsc(start, end);
     }
 }
