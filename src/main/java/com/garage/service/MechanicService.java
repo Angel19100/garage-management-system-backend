@@ -5,7 +5,7 @@ import com.garage.entity.Mechanic;
 import com.garage.entity.Speciality;
 import com.garage.repository.MechanicRepository;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -99,6 +99,67 @@ public String delete(UUID id) {
 public List<Mechanic> getMechanicsBySpeciality(String name) {
     return repository.findBySpecialityName(name);
 } 
+
+//D3 Adding mechanic speciality but with rules
+@Transactional
+public String addSpeciality(UUID mechanicId, UUID specialityId) {
+    Optional<Mechanic> mechanicResult = repository.findById(mechanicId);
+
+    if (mechanicResult.isEmpty()) {
+        return "The mechanic with that id does not exist";
+    }
+
+    Optional<Speciality> specialityResult = specialityRepository.findById(specialityId);
+
+    if (specialityResult.isEmpty()) {
+        return "That specialty does not exist";
+    }
+
+    Mechanic mechanic = mechanicResult.get();
+    Speciality speciality = specialityResult.get();
+
+    if (mechanic.getSpecialities().contains(speciality)) {
+        return "The mechanic already has that specialty";
+    }
+
+    mechanic.getSpecialities().add(speciality);
+    repository.save(mechanic);
+
+    return "Specialty added to the mechanic";
+}
+//D4 moving mechanic to a certain bay
+
+public String changeBay(UUID mechanicId, Integer bayNumber) {
+    Optional<Mechanic> mechanicResult =
+            repository.findById(mechanicId);
+
+    if (mechanicResult.isEmpty()) {
+        return "The mechanic with that id does not exist";
+    }
+
+    Optional<Bay> bayResult =
+            bayRepository.findByBayNumber(bayNumber);
+
+    if (bayResult.isEmpty()) {
+        return "The bay with that bayNumber does not exist";
+    }
+
+    Mechanic mechanic = mechanicResult.get();
+    Bay newBay = bayResult.get();
+
+    boolean alreadyInThisBay =
+            mechanic.getBay() != null
+            && mechanic.getBay().getId().equals(newBay.getId());
+
+    if (!alreadyInThisBay && repository.existsByBay(newBay)) {
+        return "That bay is taken by another mechanic";
+    }
+
+    mechanic.setBay(newBay);
+    repository.save(mechanic);
+
+    return "Bay changed successfully";
+}
 
 
 }

@@ -14,4 +14,7 @@ public interface JobCardRepository extends JpaRepository<JobCard, UUID> {
 
     //B3 jobcards between two dates
     List<JobCard> findByEntryDateBetweenOrderByEntryDateAsc(LocalDate start, LocalDate end);
+
+    //D1: Check for a non cancelled jobcard for the mechanic on this date(safe saving)
+    boolean existsByMechanic_IdAndEntryDateAndStatusNot(UUID mechanicId, LocalDate entryDate, JobCardStatus status);
 }
