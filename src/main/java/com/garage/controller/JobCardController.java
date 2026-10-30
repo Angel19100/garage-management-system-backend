@@ -75,6 +75,11 @@ public class JobCardController {
         if (result.equals("The job card with that id does not exist")) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
         }
+        // E3 refusing deleting if it has payments
+        if(result.equals("That job card has payments, delete them first")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(result);
+        }
+
 
         return ResponseEntity.ok(result);
     }
@@ -94,6 +99,7 @@ public class JobCardController {
         return ResponseEntity.ok(service.getJobCardsBetweenDates(startDate, endDate));
     }
 
+   // D2 changing job status 
     @PatchMapping("/{id}/status")
     public ResponseEntity<String> updatedStatus(@PathVariable UUID id, @RequestParam JobCardStatus status) {
 

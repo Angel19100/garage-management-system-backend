@@ -8,14 +8,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.time.LocalDate;
+import com.garage.repository.PaymentRepository;
 
 @Service
 public class JobCardService {
     
     private final JobCardRepository repository;
+    private final PaymentRepository paymentRepository;
 
-    public JobCardService(JobCardRepository repository) {
+    public JobCardService(JobCardRepository repository, PaymentRepository paymentRepository) {
         this.repository = repository;
+        this.paymentRepository = paymentRepository;
     }
      
     //D1 validating before saving
@@ -23,7 +26,6 @@ public class JobCardService {
     public String save(JobCard jobCard) {
         //(D1)rule 1: rejecting dates before today
 
-         //reject dates before today.
         if (jobCard.getEntryDate().isBefore(LocalDate.now())) {
             return "Job card date cannot be in the past";
         }
@@ -70,10 +72,14 @@ public class JobCardService {
 
         return "Job card updated successfully";
     }
-
+ //E3 not deleting a job card that still has payments.
     public String delete(UUID id) {
         if (!repository.existsById(id)) {
             return "The job card with that id does not exist";
+        }
+// prevent deleting a job card that has payments 
+        if(paymentRepository.existsByJobCardId(id)) {
+            return"That job card has payments, delete them first";
         }
 
         repository.deleteById(id);
@@ -92,7 +98,7 @@ public class JobCardService {
         return repository.findByEntryDateBetweenOrderByEntryDateAsc(start, end);
     }
 
-    //D2 job status transitions
+    //D2 enforcing job status transitions
     public String updateStatus(UUID id, JobCardStatus newStatus) {
         Optional<JobCard> result = repository.findById(id);
 
