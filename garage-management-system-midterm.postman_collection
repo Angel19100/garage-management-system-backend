@@ -1,0 +1,1307 @@
+{
+  "info": {
+    "_postman_id": "5e045cc2-47dd-4db2-b539-b5b9396ad8d4",
+    "name": "MID TERM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58405244"
+  },
+  "item": [
+    {
+      "name": "A2 Update speciality",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specialties/update/1928b206-a81f-4eaf-9b22-36564752e1a9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specialties",
+            "update",
+            "1928b206-a81f-4eaf-9b22-36564752e1a9"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New request",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"firstName\": \"Daniel\",\r\n  \"lastName\": \"Niyonsenga\",\r\n  \"phone\": \"0788000001\",\r\n  \"bay\": {\r\n    \"id\": \"89d14723-ee2d-450a-8a6d-3fdff8139efd\"\r\n  },\r\n  \"specialities\": [\r\n    {\r\n      \"id\": \"62dee812-77f7-455b-bb11-4c8c865f1716\"\r\n    }\r\n  ]\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/update/9600f086-ecc9-49f9-9e69-9dd139b04539",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "update",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "B1 getting vehicle type",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "B2/JOB STATUS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/by-status?status=OPENED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "by-status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "OPENED"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "B3 date range",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/between?start=2026-10-01&end=2026-10-31",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "between"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-10-01"
+            },
+            {
+              "key": "end",
+              "value": "2026-10-31"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C1 mechanics by speciality",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C2 free bays",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/bays/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bays",
+            "free"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C3 unsed specilities",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specialities/unused",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specialities",
+            "unused"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "c4 existing mechanic's vehicles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/vehicles/of-mechanic/9600f086-ecc9-49f9-9e69-9dd139b04539",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "vehicles",
+            "of-mechanic",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "C4 non existing mechanic",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/vehicles/of-mechanic/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "vehicles",
+            "of-mechanic",
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D1 PAST DATE ERROR",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D1 Duplicate booking",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"entryDate\": \"2026-10-29\",\r\n  \"workToDo\": \"Test past date validation\",\r\n  \"vehicle\": {\r\n    \"id\": \"17e41fc6-9a9b-44d3-bb33-8a57af999a88\"\r\n  },\r\n  \"mechanic\": {\r\n    \"id\": \"9600f086-ecc9-49f9-9e69-9dd139b04539\"\r\n  },\r\n  \"status\": \"FINISHED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D1 FORCED OPEN STATUS",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"entryDate\": \"2026-10-31\",\r\n  \"workToDo\": \"Test forced OPENED status\",\r\n  \"vehicle\": {\r\n    \"id\": \"17e41fc6-9a9b-44d3-bb33-8a57af999a88\"\r\n  },\r\n  \"mechanic\": {\r\n    \"id\": \"9600f086-ecc9-49f9-9e69-9dd139b04539\"\r\n  },\r\n  \"status\": \"FINISHED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2 Allowed transition",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2 Invalid Transition",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/2dfeb170-c2f0-40e8-8f94-ff303d6786fe/status?status=IN_PROGRESS",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "2dfeb170-c2f0-40e8-8f94-ff303d6786fe",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "IN_PROGRESS"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D2 Nonexistent job card",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/00000000-0000-0000-0000-000000000000/status?status=IN_PROGRESS",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "00000000-0000-0000-0000-000000000000",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "IN_PROGRESS"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3 adding new specialty & testing same specialty again",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/9600f086-ecc9-49f9-9e69-9dd139b04539/specialities/2a9ec0d6-83cd-4c4e-819f-36ecca2f19fc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539",
+            "specialities",
+            "2a9ec0d6-83cd-4c4e-819f-36ecca2f19fc"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3 non existant id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/9700f086-ecc9-48f7-9e69-9dd139b04539/specialities/2a9ec0d6-83cd-4c4e-819f-36ecca2f19fc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "9700f086-ecc9-48f7-9e69-9dd139b04539",
+            "specialities",
+            "2a9ec0d6-83cd-4c4e-819f-36ecca2f19fc"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D3 non existant speciality id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/9600f086-ecc9-49f9-9e69-9dd139b04539/specialities/9a9e60d6-83cd-4c4e-819f-36ecca2f19fc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539",
+            "specialities",
+            "9a9e60d6-83cd-4c4e-819f-36ecca2f19fc"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4 movinf mechanic to free bay 4",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/9600f086-ecc9-49f9-9e69-9dd139b04539/bay?bayNumber=4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539",
+            "bay"
+          ],
+          "query": [
+            {
+              "key": "bayNumber",
+              "value": "4"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4 : moving mechanic to occupied bay",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4 non existant bay number",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/9600f086-ecc9-49f9-9e69-9dd139b04539/bay?bayNumber=99",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539",
+            "bay"
+          ],
+          "query": [
+            {
+              "key": "bayNumber",
+              "value": "99"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "D4 non existant mechanic",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/1600f066-ecc9-49f9-9e69-9dd139b04539/bay?bayNumber=4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "1600f066-ecc9-49f9-9e69-9dd139b04539",
+            "bay"
+          ],
+          "query": [
+            {
+              "key": "bayNumber",
+              "value": "4"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1 paying error for unfinshed jobs",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"paymentMethod\": \"Mobile Money\",\r\n  \"note\": \"Test payment for unfinished job\",\r\n  \"amount\": 60000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/payments/save?jobCardId=1630b49e-270f-416c-a1bd-f3461a23c428",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "payments",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "jobCardId",
+              "value": "1630b49e-270f-416c-a1bd-f3461a23c428"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1 changing job from open to inprogress",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/1630b49e-270f-416c-a1bd-f3461a23c428/status?status=IN_PROGRESS",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "1630b49e-270f-416c-a1bd-f3461a23c428",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "IN_PROGRESS"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1 job now trasitioned to finshed for proper paying",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/1630b49e-270f-416c-a1bd-f3461a23c428/status?status=FINISHED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "1630b49e-270f-416c-a1bd-f3461a23c428",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "FINISHED"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E1 succesfull payment for finsihed job",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/payments/save?jobCardId=1630b49e-270f-416c-a1bd-f3461a23c428",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "payments",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "jobCardId",
+              "value": "1630b49e-270f-416c-a1bd-f3461a23c428"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Making Payements",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"paymentMethod\": \"Bank Transfer\",\r\n  \"note\": \"Final payment for completed RAV4 service\",\r\n  \"amount\": 85000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/payments/save?jobCardId=1630b49e-270f-416c-a1bd-f3461a23c428",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "payments",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "jobCardId",
+              "value": "1630b49e-270f-416c-a1bd-f3461a23c428"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E2 Getting payments for a specific car",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E3 getting all payments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E3 confirm failure for  deleting jobcards with payments",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/delete/1630b49e-270f-416c-a1bd-f3461a23c428",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "delete",
+            "1630b49e-270f-416c-a1bd-f3461a23c428"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "E3 Succesfully deleting a payment",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "F1 JOB CARDS PER STATUS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "F2 Cancelling jobcards expected finished ones for a mechanic",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/cancel-day?mechanicId=9600f086-ecc9-49f9-9e69-9dd139b04539&date=2026-10-20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "cancel-day"
+          ],
+          "query": [
+            {
+              "key": "mechanicId",
+              "value": "9600f086-ecc9-49f9-9e69-9dd139b04539"
+            },
+            {
+              "key": "date",
+              "value": "2026-10-20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bonus: Dashboard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dashboard/summary",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "dashboard",
+            "summary"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bonus first page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/page?page=0&size=5&sort=entryDate,desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            },
+            {
+              "key": "sort",
+              "value": "entryDate,desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "bonus second page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/page?page=1&size=5&sort=entryDate,desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            },
+            {
+              "key": "sort",
+              "value": "entryDate,desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 CREATE SPECIALITY",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Engine Repair\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/specialties/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specialties",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Read Speciality",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specialties/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specialties",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Delete Speciality",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specialties/delete/1928b206-a81f-4eaf-9b22-36564752e1a9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specialties",
+            "delete",
+            "1928b206-a81f-4eaf-9b22-36564752e1a9"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Create Bay",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/bays/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bays",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 READ BAYS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/bays/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bays",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Update Bays",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/bays/update/89d14723-ee2d-450a-8a6d-3fdff8139efd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bays",
+            "update",
+            "89d14723-ee2d-450a-8a6d-3fdff8139efd"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Delete Bay",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/bays/delete/89d14723-ee2d-450a-8a6d-3fdff8139efd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bays",
+            "delete",
+            "89d14723-ee2d-450a-8a6d-3fdff8139efd"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Create Mechanics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Read Mechanics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Update Mechanics",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Daniel\",\r\n  \"lastName\": \"Niyonsenga\",\r\n  \"phone\": \"0788111111\",\r\n  \"bay\": {\r\n    \"id\": \"408ab2e7-dd1f-41cc-897c-86bbfe5f3487\"\r\n  },\r\n  \"specialties\": [\r\n    {\r\n      \"id\": \"1928b206-a81f-4eaf-9b22-36564752e1a9\"\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/update/9600f086-ecc9-49f9-9e69-9dd139b04539",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "update",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Delete Mechanics",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/mechanics/delete/9600f086-ecc9-49f9-9e69-9dd139b04539",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mechanics",
+            "delete",
+            "9600f086-ecc9-49f9-9e69-9dd139b04539"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Create Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"make\": \"Toyota\",\r\n  \"model\": \"RAV4\",\r\n  \"plateNumber\": \"RAD 123 A\",\r\n  \"ownerName\": \"Aline Mukamana\",\r\n  \"vehicleType\": \"SUV\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/vehicles/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "vehicles",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 READ Vehicles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/vehicles/17e41fc6-9a9b-44d3-bb33-8a57af999a88",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "vehicles",
+            "17e41fc6-9a9b-44d3-bb33-8a57af999a88"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Update Vehicles",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"make\": \"Toyota\",\r\n  \"model\": \"RAV4\",\r\n  \"plateNumber\": \"RAD 123 A\",\r\n  \"ownerName\": \"Aline Mukamana\",\r\n  \"vehicleType\": \"SUV\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/vehicles/update/17e41fc6-9a9b-44d3-bb33-8a57af999a88",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "vehicles",
+            "update",
+            "17e41fc6-9a9b-44d3-bb33-8a57af999a88"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Delete Vehicles",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/vehicles/delete/17e41fc6-9a9b-44d3-bb33-8a57af999a88",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "vehicles",
+            "delete",
+            "17e41fc6-9a9b-44d3-bb33-8a57af999a88"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Create Jobcard",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"entryDate\": \"2026-12-01\",\r\n  \"workToDo\": \"Engine inspection and oil change\",\r\n  \"vehicle\": {\r\n    \"id\": \"17e41fc6-9a9b-44d3-bb33-8a57af999a88\"\r\n  },\r\n  \"mechanic\": {\r\n    \"id\": \"9600f086-ecc9-49f9-9e69-9dd139b04539\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 read Jobcards",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Update jobcards",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/update/1b13f5d3-007d-49a3-b3e8-ee4100419aa0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "update",
+            "1b13f5d3-007d-49a3-b3e8-ee4100419aa0"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 Delete jobcards",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/job-cards/delete/1b13f5d3-007d-49a3-b3e8-ee4100419aa0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "job-cards",
+            "delete",
+            "1b13f5d3-007d-49a3-b3e8-ee4100419aa0"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
