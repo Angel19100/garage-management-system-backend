@@ -9,6 +9,9 @@ import java.util.Optional;
 import java.util.UUID;
 import java.time.LocalDate;
 import com.garage.repository.PaymentRepository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class JobCardService {
@@ -120,5 +123,20 @@ public class JobCardService {
 
         return "Job Card updated successfully";
     }
+    //F1: Get jobcard counts grouped by status
+    public List<Object[]> getJobCardStatsByStatus() {
+        return repository.countJobCardsByStatus();
+    }
+    //F2 Cancel all nofinished jobcards for a mechanic on a date
+    @Transactional 
+    public String cancelJobCardsForMechanicOnDate(UUID mechanicId, LocalDate date) {
+        int count= repository.cancelJobCardsForMechanicOnDate(mechanicId, date, JobCardStatus.CANCELLED,JobCardStatus.FINISHED); 
+        return count + "job cards cancelled";
+
+    }
+    // Bonus: Get job cards using pagination
+public Page<JobCard> getJobCardsPage(Pageable pageable) {
+    return repository.findAll(pageable);
+}
         
 }

@@ -12,6 +12,11 @@ import java.util.Optional;
 import java.util.UUID;
 import java.time.LocalDate;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
 @RestController 
 @RequestMapping("/api/job-cards")
 
@@ -121,5 +126,41 @@ public class JobCardController {
 
     }
 
+    //F1 getting job card statistics by status
+    @GetMapping("/stats/by-status")
+    public ResponseEntity<List<Object[]>> getJobCardStatsByStatus() {
+        return ResponseEntity.ok(service.getJobCardStatsByStatus());
+    }
+
+// F2 Cancel a mechanic's job cards for a specific date
+@PatchMapping("/cancel-day")
+public ResponseEntity<String> cancelJobCardsForMechanicOnDate(
+        @RequestParam UUID mechanicId,
+        @RequestParam LocalDate date) {
+
+    String result = service.cancelJobCardsForMechanicOnDate(mechanicId, date);
+
+    return ResponseEntity.ok(result);
+}
+
+// Bonus, get job cards by page
+@GetMapping("/page")
+public ResponseEntity<Page<JobCard>> getJobCardsPage(
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "5") int size,
+        @RequestParam(defaultValue = "entryDate,desc") String sort) {
+
+    String[] sortDetails = sort.split(",");
+
+    Sort.Direction direction = Sort.Direction.fromString(sortDetails[1]);
+
+    Pageable pageable = PageRequest.of(
+            page,
+            size,
+            Sort.by(direction, sortDetails[0])
+    );
+
+    return ResponseEntity.ok(service.getJobCardsPage(pageable));
+}
     
 }
